@@ -12,6 +12,11 @@ export default {
     // adicionar produto
     addProduto: async (produto) => {
         await api.post('adicionar-produtos', produto)
+    },
+
+    // deletar produto
+    delProduto: async (id) => {
+        await api.delete(`deletar-produto/${id}`)
     }
 
 

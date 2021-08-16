@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Tabela :produtos="produtos"/>     
+        <Tabela :produtos="produtos" @atualizarTabela="atualizarTabela"/>     
 
     </div>
 </template>
@@ -12,9 +12,13 @@ export default {
     components: {
         Tabela,
     },
-  async created() {
+  async mounted() {
     this.produtos = await controller.buscarProdutos();
-    console.log(this.produtos)
+  },
+  methods: {
+      atualizarTabela: async function (){
+        this.produtos = await controller.buscarProdutos();
+      }
   },
   data() {
     return {

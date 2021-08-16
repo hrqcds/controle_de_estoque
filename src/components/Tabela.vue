@@ -23,7 +23,7 @@
           <div class="opcoes">
             <v-btn icon ><v-icon color="green">mdi-plus</v-icon></v-btn>
             <v-btn icon><v-icon medium color="primary">mdi-pen</v-icon></v-btn>
-            <v-btn icon ><v-icon color="red">mdi-delete</v-icon></v-btn>            
+            <v-btn @click="deletarProduto(produto.id)" icon ><v-icon color="red">mdi-delete</v-icon></v-btn>            
             
           </div>
         </td>
@@ -33,12 +33,23 @@
 </template>
 
 <script>
+
+import controller from "../controllers/produtos"
+
 export default {
     props: {
         produtos: {
             type: Array || String,
+        },        
+    },
+
+    methods: {
+        async deletarProduto(id){
+            await controller.delProduto(id)
+            this.$emit("atualizarTabela")
         }
     }
+
 }
 </script>
 
