@@ -39,7 +39,13 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="atualizarProduto(produtoAtualizado)"> Confirmar </v-btn>
+          <v-btn
+            color="primary"
+            text
+            @click="atualizarProduto(produtoAtualizado)"
+          >
+            Confirmar
+          </v-btn>
 
           <v-btn color="error" text @click="fecharModal"> Close </v-btn>
         </v-card-actions>
@@ -49,8 +55,7 @@
 </template>
 
 <script>
-
-import controller from "../controllers/produtos"
+import controller from "../controllers/produtos";
 
 export default {
   props: ["dialog", "produtoAtualizado"],
@@ -64,11 +69,11 @@ export default {
     fecharModal() {
       this.$emit("controle");
     },
-    async atualizarProduto(produto){
-      await controller.editProduto(produto)
-      this.$emit('controle')
-    }
-    
+    async atualizarProduto(produto) {
+      await controller.editProduto(produto);
+      this.$emit("controle");
+      alert("atualizado com sucesso")
+    },
   },
 };
 </script>

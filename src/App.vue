@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark> 
-      <Header/>
+    <v-app-bar app color="primary" dark>
+      <Header />
     </v-app-bar>
 
     <v-main>
@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue"
+import Header from "./components/Header.vue";
 
 export default {
   name: "App",
-  components: {Header} 
+  components: { Header },
 };
 </script>

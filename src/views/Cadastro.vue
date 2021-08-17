@@ -26,7 +26,7 @@
       </v-container>
 
       <v-row justify="end">
-        <v-btn @click="submit" color="success" class="mr-4">Submit</v-btn>
+        <v-btn @click="submit" color="success" class="mr-4">Cadastrar</v-btn>
 
         <v-btn @click="resetInputs" color="error" class="mr-4">
           Reset Form
@@ -48,9 +48,13 @@ export default {
       if (this.produto.codigo == "") erros.push("Codigo está vazio") 
       if (this.produto.descricao == "") erros.push("Descrição está vazia") 
       if (this.produto.categoria == "") erros.push("Categoria está vazia") 
-      if (this.produto.quantidade == 0) erros.push("Quantidade está zerada") 
+      if (this.produto.quantidade == 0) erros.push("Quantidade está zerada")       
 
-      if(erros.length > 0) return (erros.map(erro => console.log(erro)))
+      if(erros.length > 0) return (erros.map(erro => alert(erro)))
+
+      this.produto.codigo = this.produto.codigo.toUpperCase()
+      this.produto.descricao = this.produto.descricao.toUpperCase()
+      this.produto.categoria = this.produto.categoria.toUpperCase()
 
       await controller.addProduto(this.produto)
 
@@ -58,6 +62,8 @@ export default {
       this.produto.descricao = "";
       this.produto.categoria = "";
       this.produto.quantidade = 0;
+
+      
     },
 
     resetInputs() {

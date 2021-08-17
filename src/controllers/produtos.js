@@ -1,11 +1,11 @@
 import api from "../services/api"
 
 export default {
-    
+
     // buscando todos os produtos
     buscarProdutos: async () => {
         let produtos = []
-        produtos = (await api.get('baixar-produtos')).data        
+        produtos = (await api.get('baixar-produtos')).data
         return produtos
     },
 
