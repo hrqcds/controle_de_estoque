@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     async deletarProduto(id) {
-      if(confirm()){
+      if(confirm("Deseja excluir esta linha?")){
           await controller.delProduto(id);
           this.$emit("atualizarTabela");
       }

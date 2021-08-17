@@ -4,8 +4,9 @@
 
     <nav>
       <ul>
-        <li><router-link to="/">Relatórios</router-link></li>
+        <li><router-link to="/estoque">Relatórios</router-link></li>
         <li><router-link to="/cadastro">Cadastro</router-link></li>
+        <li><router-link to="/"><v-icon color="#337BC2">mdi-account</v-icon></router-link></li>
       </ul>
     </nav>
   </div>
